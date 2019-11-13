@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="all.css" />
+    <script src="varFunctions.js" defer></script>
+    <script src="app.js" defer></script>
+    <title>Welcome to YAHTZEE! - a popular dicing game</title>
+  </head>
+  <body>
+    <div class="gamecontainer">
+      <div class="buttons">
+        <button class="button btn-new">
+          <i class="fas fa-plus-square fa-3x"></i>
+          <p class="big">NEW GAME</p>
+        </button>
+        <button class="button btn-results">
+          <i class="fas fa-poll-h fa-3x"></i>
+          <p class="big">RESULTS</p>
+        </button>
+        <button class="button btn-roll">
+          <i class="fas fa-play-circle fa-3x"></i>
+          <p class="big">ROLL</p>
+        </button>
+      </div>
+      <h2 class="round">ROUND<br /><span class="roundNumber">1</span></h2>
+      <h2 class="throws">
+        THROWS<br />LEFT<br /><span class="throwsNumber">3</span>
+      </h2>
+      <h2 class="score">TOTAL<br />SCORE<br /><span id="score">0</span></h2>
+      <h1>YAHTZEE!</h1>
+      <div class="loading"></div>
+      <div class="diceArea">
+        <img src="/img/dice-1.png" alt="" class="dice-1" width="45%" />
+        <img src="/img/dice-2.png" alt="" class="dice-2" width="45%" />
+        <img src="/img/dice-3.png" alt="" class="dice-3" width="45%" />
+        <img src="/img/dice-4.png" alt="" class="dice-4" width="45%" />
+        <img src="/img/dice-5.png" alt="" class="dice-5" width="45%" />
+      </div>
+      <div class="holdArea">
+        <button class="hold-1">HOLD</button>
+        <button class="hold-2">HOLD</button>
+        <button class="hold-3">HOLD</button>
+        <button class="hold-4">HOLD</button>
+        <button class="hold-5">HOLD</button>
+      </div>
+
+      <div class="newGameArea">
+        <h3>Are you sure? You will loose all your progress!</h3>
+        <button class="resetButton">OK</button>
+        <button class="cancelButton">Cancel</button>
+      </div>
+      <!-- HERE STARTS RESULT AREA -->
+      <div class="resultArea">
+        <h3>Where do you want to store your result of that round?</h3>
+        <p>
+          Remember, save at least some point in every round. If you dont save
+          your roundresult your result of this round will be deleted as soon as
+          you throw the next time!
+        </p>
+        <span></span>
+        <div class="resultAreaMain">
+          <div class="resultsLeft">
+            <div class="results ones">
+              <img
+                class="resultImg"
+                src="img/dice-1.png"
+                height="20px"
+                width="20px"
+              /><span class="spanLeft">=</span>
+              <div class="sumStore store1">4</div>
+              <div class="offer offer1">4</div>
+              <button class="storeLeft" id="1" onClick="saveClick(this.id)">
+                Save here?
+              </button>
+            </div>
+            <div class="results twos">
+              <img
+                class="resultImg"
+                src="img/dice-2.png"
+                height="20px"
+                width="20px"
+              /><span class="spanLeft">=</span>
+              <div class="sumStore store2">2</div>
+              <div class="offer offer2">2</div>
+              <button class="storeLeft" id="2" onClick="saveClick(this.id)">
+                Save here?
+              </button>
+            </div>
+            <div class="results threes">
+              <img
+                class="resultImg"
+                src="img/dice-3.png"
+                height="20px"
+                width="20px"
+              /><span class="spanLeft">=</span>
+              <div class="sumStore store3">9</div>
+              <div class="offer offer3">9</div>
+              <button class="storeLeft" id="3" onClick="saveClick(this.id)">
+                Save here?
+              </button>
+            </div>
+            <div class="results fours">
+              <img
+                class="resultImg"
+                src="img/dice-4.png"
+                height="20px"
+                width="20px"
+              /><span class="spanLeft">=</span>
+              <div class="sumStore store4">16</div>
+              <div class="offer offer4">16</div>
+              <button class="storeLeft" id="4" onClick="saveClick(this.id)">
+                Save here?
+              </button>
+            </div>
+            <div class="results fives">
+              <img
+                class="resultImg"
+                src="img/dice-5.png"
+                height="20px"
+                width="20px"
+              /><span class="spanLeft">=</span>
+              <div class="sumStore store5">15</div>
+              <div class="offer offer5">15</div>
+              <button class="storeLeft" id="5" onClick="saveClick(this.id)">
+                Save here?
+              </button>
+            </div>
+            <div class="results sixes">
+              <img
+                class="resultImg"
+                src="img/dice-6.png"
+                height="20px"
+                width="20px"
+              /><span class="spanLeft">=</span>
+              <div class="sumStore store6">12</div>
+              <div class="offer offer6">12</div>
+              <button class="storeLeft" id="6" onClick="saveClick(this.id)">
+                Save here?
+              </button>
+            </div>
+          </div>
+          <div class="resultsRight">
+            <div class="results">
+              3 Of A Kind<span class="spanRight">=</span>
+              <div class="sumRightStore store7">12</div>
+              <div class="offerRightStore offer7">12</div>
+              <button class="storeRight" id="7" onClick="saveClick(this.id)">
+                Save here?
+              </button>
+            </div>
+            <div class="results">
+              Small Street<span class="spanRight">=</span>
+              <div class="sumRightStore store8">12</div>
+              <div class="offerRightStore offer8">12</div>
+              <button class="storeRight" id="8" onClick="saveClick(this.id)">
+                Save here?
+              </button>
+            </div>
+            <div class="results street">
+              Big Street<span class="spanRight">=</span>
+              <div class="sumRightStore store9">12</div>
+              <div class="offerRightStore offer9">12</div>
+              <button class="storeRight" id="9" onClick="saveClick(this.id)">
+                Save here?
+              </button>
+            </div>
+            <div class="results fullHouse">
+              Full House<span class="spanRight">=</span>
+              <div class="sumRightStore store10">12</div>
+              <div class="offerRightStore offer10">12</div>
+              <button class="storeRight" id="10" onClick="saveClick(this.id)">
+                Save here?
+              </button>
+            </div>
+            <div class="results poker">
+              Poker<span class="spanRight">=</span>
+              <div class="sumRightStore store11">12</div>
+              <div class="offerRightStore offer11">12</div>
+              <button class="storeRight" id="11" onClick="saveClick(this.id)">
+                Save here?
+              </button>
+            </div>
+            <div class="results yahtzee">
+              Yahtzee<span class="spanRight">=</span>
+              <div class="sumRightStore store12">12</div>
+              <div class="offerRightStore offer12">12</div>
+              <button class="storeRight" id="12" onClick="saveClick(this.id)">
+                Save here?
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
